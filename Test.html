@@ -1,0 +1,20 @@
+<script src="FileSaver.js" type="text/javascript">
+
+</script>	
+<script src="Blob.js" type="text/javascript"></script>
+
+</script>
+<script language="javascript" type="text/javascript">
+function Savefile() {
+	var quq = document.getElementById("inputtexts").value
+	var bloob = new Blob([quq], { type: "text/plain;charset=utf-8"});
+	saveAs(bloob, "story.txt");
+}
+</script >
+
+<html>
+	<body>
+		<input type ="Button" value="Newtext" OnClick="Savefile();">
+		<textarea name="inputtext" id="inputtexts"></textarea>
+	</body>
+</html>
