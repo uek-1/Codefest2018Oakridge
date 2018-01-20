@@ -6,20 +6,6 @@ function addtext() {
 	document.myform.outputtext.value += space +=newtext;
 }
 </script>
-<script language="javascript" type="text/javascript">
-function Savefile() {
-	var quq = document.getElementById("inputtextsone").value
-	var bloob = new Blob([quq], { type: "text/plain;charset=utf-8"});
-	saveAs(bloob, "story.txt");
-}
-</script >
-<script language="javascript" type="text/javascript">
-function SaveAdd() {
-	
-	addtext()
-	Savefile()
-	}
-</script>
 <html>
 <style>
 .button {
@@ -64,10 +50,6 @@ body {
 		background-size: 100%;
 		background-attachment: fixed;
 		}
-textarea {
-	width: 600px;
-	height: 300px;
-	}
 	</style>
 	<head>
 	 <font size="50" color="white" face="zombie-noize"><center>
@@ -86,7 +68,7 @@ textarea {
 
 
 
-<textarea readonly name="outputtext" id="inputtextsone" height="150px" width="150px"></textarea>
+<textarea readonly name="outputtext"></textarea>
 <br>
 <textarea name="inputtext"></textarea>
 <br>
