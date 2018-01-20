@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<script language="javascript" type="text/javascript">
+function addtext() {
+	var newtext = document.myform.inputtext.value;
+	var space = "  ";
+	document.myform.outputtext.value += space +=newtext;
+}
+</script>
 <html>
 <style>
 .button {
@@ -45,8 +52,9 @@ body {
 		}
 	</style>
 	<head>
-	 <font size="25" color="white" face="zombie-noize"><center>
+	 <font size="50" color="white" face="zombie-noize"><center>
 	 The story so far:
+	 <br>
 	 <a href="Space.html"><button class="button"><span>Back</span></button></a>
 	 </font></center>
 	 </head>
@@ -54,6 +62,18 @@ body {
 	 <body>
 	 <font size="20" color="white" face="zombie-noize"><center>
 	 ...
-	 </font></center>
+	 </font><br>
+	  <form name="myform">
+<table border="0" cellspacing="0" cellpadding="5">
+
+
+
+<textarea readonly name="outputtext"></textarea>
+<br>
+<textarea name="inputtext"></textarea>
+<br>
+<input type="button" value="Add New Text" onClick="addtext();"></p>
+</form>
+	 </center>
 	 </body>
 </html>

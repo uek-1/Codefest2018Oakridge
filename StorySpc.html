@@ -1,3 +1,10 @@
+<script language="javascript" type="text/javascript">
+function addtext() {
+	var newtext = document.myform.inputtext.value;
+	var space = "  ";
+	document.myform.outputtext.value += space +=newtext;
+}
+</script>
 <html>
 	<style>
 	body {
@@ -54,6 +61,16 @@
 	 <body>
 	 <font size="20" color="white"><center>
 	 ...
-	 </font></center>
+	 </font><br>  <form name="myform">
+<table border="0" cellspacing="0" cellpadding="5">
+
+
+
+<textarea readonly name="outputtext"></textarea>
+<br>
+<textarea name="inputtext"></textarea>
+<br>
+<input type="button" value="Add New Text" onClick="addtext();"></p>
+</form></center>
 	 </body>
 </html>
