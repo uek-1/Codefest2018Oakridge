@@ -39,15 +39,44 @@
 		height: 100%
 		}
 		.button {
-			background-color: #e7e7e7; color:black; 
-			font-size: 50px; 
-			border-radius: 12px;
-			transition-duration: 0.4s;
-			}
-		.button:hover {	
-			background-color: #e7e7e9; color:black;
-			border: 2px solid #e7e7e8;
-			}
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  width: 150px;
+  height: 50px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}	
 		
 			
 		
@@ -67,7 +96,7 @@
 	<br/>
 	<br/>
 	<br/>
-	<center><a href="Subjects.html"><button class ="button">Subjects</button></a></center>
+	<center><a href="Subjects.html"><button class ="button"><span>Subjects</span></button></a></center>
 
 
 	<div class="text"><b> An open-sourced learning platform for students and teachers around the world
