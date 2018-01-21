@@ -1,20 +1,29 @@
-<script src="FileSaver.js" type="text/javascript">
+<input type="file" id="fileinput" />
+    <script type="text/javascript">
+      function readSingleFile(evt) {
+        //Retrieve the first (and only!) File from the FileList object
+        var f = evt.target.files[0]; 
 
-</script>	
-<script src="Blob.js" type="text/javascript"></script>
+        if (f) {
+          var r = new FileReader();
+          r.onload = function(e) { 
+              var contents = e.target.result;
+            alert( "Got the file.\n" 
+                  +"name: " + f.name + "\n"
+                  +"type: " + f.type + "\n"
+                  +"size: " + f.size + " bytes\n"
+                  + "starts with: " + contents.substr(1, contents.indexOf("\n"))
+            );  
+            document.getElementById('area').value=  contents;
+          }
+          r.readAsText(f);
 
-</script>
-<script language="javascript" type="text/javascript">
-function Savefile() {
-	var quq = document.getElementById("inputtexts").value
-	var bloob = new Blob([quq], { type: "text/plain;charset=utf-8"});
-	saveAs(bloob, "story.txt");
-}
-</script >
+        } else { 
+          alert("Failed to load file");
+        }
+      }
 
-<html>
-	<body>
-		<input type ="Button" value="Newtext" OnClick="Savefile();">
-		<textarea name="inputtext" id="inputtexts"></textarea>
-	</body>
-</html>
+      document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+    </script>
+
+    <textarea rows=20 id="area"></textarea>

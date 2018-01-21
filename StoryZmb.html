@@ -1,11 +1,59 @@
-<!DOCTYPE html>
+
 <script language="javascript" type="text/javascript">
 function addtext() {
 	var newtext = document.myform.inputtext.value;
 	var space = "  ";
 	document.myform.outputtext.value += space +=newtext;
+	
 }
 </script>
+<script src="FileSaver.js" type="text/javascript">
+
+</script>	
+<script src="Blob.js" type="text/javascript">
+
+</script>
+<script language="javascript" type="text/javascript">
+function Savefile() {
+	var quq = document.getElementById("inputtexts").value
+	var bloob = new Blob([quq], { type: "text/plain;charset=utf-8"});
+	saveAs(bloob, "zombiestory.txt");
+}
+</script >
+<script language="javascript" type="text/javascript">
+function SaveAdd() {
+	
+	addtext()
+	Savefile()
+	}
+</script>
+<input type="file" id="fileinput" />
+<script type="text/javascript">
+      function readSingleFile(evt) {
+        //Retrieve the first (and only!) File from the FileList object
+        var f = evt.target.files[0]; 
+
+        if (f) {
+          var r = new FileReader();
+          r.onload = function(e) { 
+              var contents = e.target.result;
+            alert( "Got the file.\n" 
+                  +"name: " + f.name + "\n"
+                  +"type: " + f.type + "\n"
+                  +"size: " + f.size + " bytes\n"
+                  + "starts with: " + contents.substr(1, contents.indexOf("\n"))
+            );  
+            document.getElementById('inputtexts').value=  contents;
+          }
+          r.readAsText(f);
+
+        } else { 
+          alert("Failed to load file");
+        }
+      }
+
+      document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+    </script>
 <html>
 <style>
 .button {
@@ -50,12 +98,16 @@ body {
 		background-size: 100%;
 		background-attachment: fixed;
 		}
+textarea {
+	width: 600px;
+	height: 300px;
+	}
 	</style>
 	<head>
 	 <font size="50" color="white" face="zombie-noize"><center>
 	 The story so far:
 	 <br>
-	 <a href="Space.html"><button class="button"><span>Back</span></button></a>
+	 <a href="Zombie Invasion.html"><button class="button"><span>Back</span></button></a>
 	 </font></center>
 	 </head>
 	
@@ -68,11 +120,13 @@ body {
 
 
 
-<textarea readonly name="outputtext"></textarea>
+<textarea name="outputtext" id ="inputtexts"></textarea>
 <br>
-<textarea name="inputtext"></textarea>
+
 <br>
-<input type="button" value="Add New Text" onClick="addtext();"></p>
+
+<input type="button" value="Save your work" onClick="Savefile();"></p>
+
 </form>
 	 </center>
 	 </body>
